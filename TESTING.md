@@ -1,4 +1,3 @@
-```markdown
 # Testing Guide for Task Management System
 
 This document provides instructions for running the unit tests, generating test coverage reports, and interpreting the results for the Task Management System.
