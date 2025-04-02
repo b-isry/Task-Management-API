@@ -1,6 +1,21 @@
+```markdown
 # Testing Guide for Task Management System
 
 This document provides instructions for running the unit tests, generating test coverage reports, and interpreting the results for the Task Management System.
+
+---
+
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [Running Unit Tests](#running-unit-tests)
+3. [Running Specific Test Suites](#running-specific-test-suites)
+4. [Generating Test Coverage Report](#generating-test-coverage-report)
+5. [Viewing the Coverage Report](#viewing-the-coverage-report)
+6. [Interpreting Test Coverage Metrics](#interpreting-test-coverage-metrics)
+7. [Continuous Integration (CI) Testing](#continuous-integration-ci-testing)
+8. [Troubleshooting](#troubleshooting)
+9. [Example Commands](#example-commands)
+10. [External Resources](#external-resources)
 
 ---
 
@@ -115,4 +130,11 @@ The project includes a GitHub Actions CI pipeline that automatically runs tests 
 
 ---
 
-By following this guide, you can ensure the quality and reliability of the Task Management System through comprehensive testing.
+
+---
+
+## External Resources
+- [Go Testing Documentation](https://golang.org/pkg/testing/)
+- [Go Coverage Tool](https://blog.golang.org/cover)
+
+```
