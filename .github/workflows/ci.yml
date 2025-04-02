@@ -1,8 +1,6 @@
 name: CI Pipeline
 
-on` is no longer supported.
-
-To fix this issue, you need to update the `actions/upload-artifact` action to:
+on:
   push:
     branches:
       - main
@@ -12,59 +10,33 @@ To fix this issue, you need to update the `actions/upload-artifact` action to:
       - main
       - develop
 
- the latest version. Here is the updated `ci.yml`jobs:
+jobs:
   test:
     name: Run Tests
-    runs-on: file with the corrected action version:
-
-```yaml
- ubuntu-latest
+    runs-on: ubuntu-latest
 
     services:
       mongo:
         image: mongo:latest
         ports:
-          - 27017name: CI Pipeline
-
-on:
-  push:
-    branches:
-      -:27017
+          - 27017:27017
         options: >-
           --health-cmd "mongo --eval 'db.runCommand({ ping: 1 })'"
-          -- main
-      - develop
-  pull_request:
-    branches:
-health-interval 10s
-          --health-timeout 5s      - main
-      - develop
-
-jobs:
-  test:
-    name:
+          --health-interval 10s
+          --health-timeout 5s
           --health-retries 5
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@ Run Tests
-    runs-on: ubuntu-latest
-
-    services:
-v3
+        uses: actions/checkout@v3
 
       - name: Set up Go
-        uses: actions/setup-go      mongo:
-        image: mongo:latest
-        ports@v4
+        uses: actions/setup-go@v4
         with:
           go-version: 1.20
 
       - name: Install Dependencies
-        run: go:
-          - 27017:27017
-        options: >-
-          --health-cmd "mongo --eval 'db.runCommand({ mod tidy
+        run: go mod tidy
 
       - name: Run unit tests
         run: go test ./... -v
@@ -75,7 +47,5 @@ v3
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
- ping: 1 })'"
-          --health-interval 10s
-                   name: coverage-report
+          name: coverage-report
           path: coverage.out
