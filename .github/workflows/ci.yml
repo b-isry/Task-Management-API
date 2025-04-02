@@ -1,6 +1,8 @@
 name: CI Pipeline
 
-on:
+on` is no longer supported.
+
+To fix this issue, you need to update the `actions/upload-artifact` action to:
   push:
     branches:
       - main
@@ -10,33 +12,59 @@ on:
       - main
       - develop
 
-jobs:
+ the latest version. Here is the updated `ci.yml`jobs:
   test:
     name: Run Tests
-    runs-on: ubuntu-latest
+    runs-on: file with the corrected action version:
+
+```yaml
+ ubuntu-latest
 
     services:
       mongo:
         image: mongo:latest
         ports:
-          - 27017:27017
+          - 27017name: CI Pipeline
+
+on:
+  push:
+    branches:
+      -:27017
         options: >-
           --health-cmd "mongo --eval 'db.runCommand({ ping: 1 })'"
-          --health-interval 10s
-          --health-timeout 5s
+          -- main
+      - develop
+  pull_request:
+    branches:
+health-interval 10s
+          --health-timeout 5s      - main
+      - develop
+
+jobs:
+  test:
+    name:
           --health-retries 5
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@ Run Tests
+    runs-on: ubuntu-latest
+
+    services:
+v3
 
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go      mongo:
+        image: mongo:latest
+        ports@v4
         with:
           go-version: 1.20
 
       - name: Install Dependencies
-        run: go mod tidy
+        run: go:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongo --eval 'db.runCommand({ mod tidy
 
       - name: Run unit tests
         run: go test ./... -v
@@ -47,5 +75,7 @@ jobs:
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-report
+ ping: 1 })'"
+          --health-interval 10s
+                   name: coverage-report
           path: coverage.out
